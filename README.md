@@ -1,6 +1,6 @@
 # 🏦AI-Driven Churn Prediction, CLV Modeling & Profit Optimization for Banking
 
-## 🚀 Overview
+## 🚀Overview
 
 This project delivers an **end-to-end Advanced Analytics solution** designed to optimize customer retention strategies in the banking sector.
 
@@ -17,7 +17,7 @@ The solution is built with a **business-first mindset**, enabling data-driven de
 
 ---
 
-## 🎯 Business Problem
+## 🎯Business Problem
 
 Banks face increasing pressure to:
 
@@ -27,13 +27,13 @@ Banks face increasing pressure to:
 
 However, traditional ML approaches focus on accuracy rather than **economic impact**.
 
-### 🔑 Key Question:
+### 🔑Key Question:
 
 > *Which customers should we target to maximize profit, not just prediction accuracy?*
 
 ---
 
-## 💡 Solution
+## 💡Solution
 
 This project implements a **profit-oriented customer intelligence platform** that:
 
@@ -46,7 +46,7 @@ This project implements a **profit-oriented customer intelligence platform** tha
 
 ---
 
-## 🧠 Key Features
+## 🧠Key Features
 
 ### 🔹 1. Data Understanding & EDA
 
@@ -164,7 +164,7 @@ Example:
 
 ---
 
-## 🛠️ Tech Stack
+## 🛠️Tech Stack
 
 * **Python**
 * **Pandas / NumPy**
@@ -175,7 +175,7 @@ Example:
 
 ---
 
-## 📊 Outputs
+## 📊Outputs
 
 * Customer segmentation insights
 * Churn probability predictions
@@ -186,7 +186,7 @@ Example:
 
 ---
 
-## 📈 Business Impact
+## 📈Business Impact
 
 This solution enables:
 
@@ -198,7 +198,7 @@ This solution enables:
 
 ---
 
-## 🧪 End-to-End ML Lifecycle
+## 🧪End-to-End ML Lifecycle
 
 ✔ Problem definition
 ✔ Data ingestion & validation
@@ -212,7 +212,7 @@ This solution enables:
 
 ---
 
-## 🔮 Future Improvements
+## 🔮Future Improvements
 
 * Integration with real-time data pipelines
 * Deployment using APIs (FastAPI / Flask)
@@ -222,14 +222,14 @@ This solution enables:
 
 ---
 
-## 👩‍💻 Author
+## 👩‍💻Author
 
 **Flavia Hepp**
 Data Scientist | Advanced Analytics | AI & Business Strategy
 
 ---
 
-## ⭐ Why This Project Stands Out
+## ⭐Why This Project Stands Out
 
 Unlike traditional ML projects, this solution:
 
