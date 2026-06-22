@@ -272,11 +272,4 @@ Flavia Hepp
 
 Data Analytics | Machine Learning | Customer Intelligence | Revenue Optimization | Explainable AI
 
-Areas of Interest
-Machine Learning
-Predictive Analytics
-Customer Intelligence
-Revenue Optimization
-Generative AI
-MLOps
-Banking Analytics
+
