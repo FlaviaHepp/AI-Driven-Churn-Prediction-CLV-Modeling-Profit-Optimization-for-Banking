@@ -95,7 +95,7 @@ print("\nMissing values:\n", df.isnull().sum())
 
 print("\nColumnas disponibles:\n", df.columns.tolist())
 
-print("\nEstadísticas descriptivas:\n")
+print("\nDescriptive statistics:\n")
 print(df.describe())
 
 
@@ -115,7 +115,7 @@ plt.rcParams["ytick.color"] = "white"
 plt.rcParams["axes.edgecolor"] = "white"
 
 df.hist(figsize=(12,10))
-plt.suptitle("Distribución de variables numéricas")
+plt.suptitle("Distribution of numerical variables")
 plt.show()
 
 # =========================================
@@ -127,12 +127,12 @@ plt.show()
 
 
 sns.pairplot(df, hue="Churned", palette="Set2")
-plt.suptitle("Relaciones entre variables clave", y=1.02)
+plt.suptitle("Relationships between key variables\n", y=1.02)
 plt.show()
 
 plt.figure(figsize=(10,6))
 sns.heatmap(df.corr(numeric_only=True), cmap="coolwarm")
-plt.title("Matriz de correlación")
+plt.title("Correlation matrix\n")
 plt.show()
 
 target = "Churned"
@@ -150,7 +150,7 @@ sns.pairplot(
     palette="Set2"
 )
 
-plt.suptitle("Relaciones entre variables clave", y=1.02)
+plt.suptitle("Relationships between key variables\n", y=1.02)
 plt.show()
 
 # churn rate
@@ -285,9 +285,9 @@ for k in range(1, 10):
     inertia.append(kmeans.inertia_)
 
 plt.plot(range(1,10), inertia, marker='o')
-plt.xlabel("Número de clusters")
-plt.ylabel("Inercia")
-plt.title("Método del codo")
+plt.xlabel("Number of clusters")
+plt.ylabel("Inertia")
+plt.title("Elbow Method\n")
 plt.show()
 
 kmeans = KMeans(n_clusters=4, random_state=42)
@@ -301,15 +301,15 @@ sns.scatterplot(
     palette="Set1"
 )
 
-plt.title("Segmentación de clientes")
+plt.title("Customer segmentation\n")
 plt.show()
 
 sns.boxplot(x="Cluster", y="Account_Balance", data=df)
-plt.title("Balance por Cluster")
+plt.title("Cluster Balance\n")
 plt.show()
 
 sns.boxplot(x="Cluster", y="Number_of_Transactions", data=df)
-plt.title("Número de Transacciones por Cluster")
+plt.title("Number of Transactions per Cluster\n")
 plt.show()
 
 cluster_profile = df.groupby("Cluster")[cluster_features].mean()
@@ -335,15 +335,15 @@ print(cluster_profile)
 
 
 sns.boxplot(x="Cluster", y="Account_Balance", data=df)
-plt.title("Balance por Cluster")
+plt.title("Cluster Balance\n")
 plt.show()
 
 sns.boxplot(x="Cluster", y="Number_of_Transactions", data=df)
-plt.title("Transacciones por Cluster")
+plt.title("Number of Transactions per Cluster\n")
 plt.show()
 
 sns.boxplot(x="Cluster", y="CLV", data=df)
-plt.title("CLV por Cluster")
+plt.title("CLV by Cluster\n")
 plt.show()
 
 
@@ -385,11 +385,11 @@ df["CLV"] = (
 )
 
 sns.boxplot(x="Cluster", y="CLV", data=df)
-plt.title("CLV por Cluster")
+plt.title("CLV by Cluster\n")
 plt.show()
 
 sns.histplot(df["CLV"], bins=50)
-plt.title("Distribución del Customer Lifetime Value")
+plt.title("Distribution of Customer Lifetime Value\n")
 plt.show()
 
 df["ValueSegment"] = pd.qcut(
@@ -404,7 +404,7 @@ print("\nCLV promedio por cluster:\n")
 print(clv_cluster)
 
 sns.boxplot(x="Cluster", y="CLV", data=df)
-plt.title("CLV por Cluster")
+plt.title("CLV by Cluster\n")
 plt.show()
 
 sns.boxplot(x="Churned", y="CLV", data=df)
@@ -412,7 +412,7 @@ plt.title("CLV vs Churn")
 plt.show()
 
 sns.countplot(x="ValueSegment", hue="Churned", data=df)
-plt.title("Segmentación de valor vs Churn")
+plt.title("Value Segmentation vs Churn\n")
 plt.show()
 
 
@@ -430,7 +430,7 @@ plt.show()
 
 
 avg_clv = df["CLV"].mean()
-print(f"\nCLV promedio: ${avg_clv:,.2f}")
+print(f"\nAverage CLV: ${avg_clv:,.2f}")
 
 # =========================================
 # BLOQUE 6 — CHURN PREDICTION MODEL
@@ -508,7 +508,7 @@ print(f"AUC: {auc:.4f}")
 
 
 xgb.plot_importance(model)
-plt.title("Importancia de variables")
+plt.title("Variable Importance\n")
 plt.show()
 
 from sklearn.metrics import classification_report
@@ -567,15 +567,15 @@ for threshold in thresholds:
     profits.append(profit)
     
 plt.plot(thresholds, profits, marker="o")
-plt.xlabel("Threshold de decisión")
-plt.ylabel("Profit esperado")
-plt.title("Optimización de profit vs threshold")
+plt.xlabel("Decision threshold")
+plt.ylabel("Expected profit")
+plt.title("Profit optimization vs threshold\n")
 plt.show()
 
 best_threshold = thresholds[np.argmax(profits)]
 best_profit = max(profits)
-print(f"Threshold óptimo: {best_threshold:.2f}")
-print(f"Profit máximo: ${best_profit:,.2f}")
+print(f"Optimal threshold: {best_threshold:.2f}")
+print(f"Maximum profit: ${best_profit:,.2f}")
 
 def calculate_profit_clv(y_true, y_pred, clv, contact_cost=20):
 
@@ -600,15 +600,15 @@ for t in thresholds:
     profits.append(profit)
     
 plt.plot(thresholds, profits, marker="o")
-plt.xlabel("Threshold de decisión")
-plt.ylabel("Profit esperado (CLV ajustado)")
-plt.title("Optimización de profit ajustado por CLV")
+plt.xlabel("Decision threshold")
+plt.ylabel("Expected profit (adjusted CLV)")
+plt.title("CLV-adjusted profit optimization\n")
 plt.show()
 
 best_threshold = thresholds[np.argmax(profits)]
 best_profit = max(profits)
-print(f"Threshold óptimo (CLV ajustado): {best_threshold:.2f}")
-print(f"Profit máximo (CLV ajustado): ${best_profit:,.2f}")
+print(f"Optimal threshold (CLV adjusted): {best_threshold:.2f}")
+print(f"Maximum profit (CLV adjusted): ${best_profit:,.2f}")
 
 best_threshold = thresholds[np.argmax(profits)]
 best_profit = max(profits)
@@ -619,7 +619,7 @@ print(f"Max Profit: ${best_profit:,.2f}")
 plt.plot(thresholds, profits)
 plt.xlabel("Threshold")
 plt.ylabel("Profit ($)")
-plt.title("Optimización de Revenue")
+plt.title("Revenue Optimization\n")
 
 plt.axvline(best_threshold, linestyle="--")
 plt.show()
@@ -645,12 +645,12 @@ default_profit = calculate_profit_clv(
     clv_test
 )
 
-print(f"Profit con threshold 0.5: ${default_profit:,.2f}")
-print(f"Profit optimizado: ${best_profit:,.2f}")
+print(f"Profit with threshold 0.5: ${default_profit:,.2f}")
+print(f"Optimized profit: ${best_profit:,.2f}")
 
 roi = best_profit / (len(y_test) * 20)
 
-print(f"ROI estimado: {roi:.2f}")
+print(f"Estimated ROI: {roi:.2f}")
 
 # =========================================
 # BLOQUE 8 — CUSTOMER TARGETING STRATEGY
@@ -700,10 +700,10 @@ fp = np.sum(targeted["y_true"] == 0)
 
 total_profit = (tp * BENEFIT_TP) - (len(targeted) * COST_CONTACT)
 
-print("Clientes contactados:", len(targeted))
+print("Clients contacted:", len(targeted))
 print("True Positives:", tp)
 print("False Positives:", fp)
-print("Profit total:", total_profit)
+print("Total profit:", total_profit)
 
 BUDGET = 5000
 
@@ -748,108 +748,87 @@ print(f"Expected Value promedio: ${avg_ev:.2f}")
 # BLOQUE 9 — EXPLAINABILITY (SHAP)
 # =========================================
 
-
-#Objetivo:
-#---------
-#Interpretar el modelo de churn para:
-
-#- entender drivers de abandono
-#- justificar decisiones comerciales
-#- mejorar confianza en el modelo
-
-#Enfoque:
-#--------
-#Uso de SHAP (Shapley Values) para explicar:
-#- importancia global
-#- impacto individual por cliente
-
-
 import shap
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
 
-explainer = shap.Explainer(model, X_train)
+# -----------------------------
+# 1. Alinear features
+# -----------------------------
+X_test = X_test[X_train.columns]
+
+# -----------------------------
+# 2. SHAP explainer moderno (estable para XGBoost)
+# -----------------------------
+explainer = shap.Explainer(model.predict_proba, X_train)
+
 shap_values = explainer(X_test)
+shap_matrix = shap_values.values
 
-shap.plots.bar(shap_values)
+# -----------------------------
+# 3. Ajuste para clasificación binaria
+# -----------------------------
+if shap_matrix.ndim == 3:
+    shap_matrix = shap_matrix[:, :, 1]
 
-plt.title("Importancia global de variables (SHAP)")
-plt.show()  
+# -----------------------------
+# 4. IMPORTANCIA GLOBAL
+# -----------------------------
+mean_impact = np.abs(shap_matrix).mean(axis=0).ravel()
 
-shap.plots.beeswarm(shap_values)
-plt.title("Impacto de variables por cliente (SHAP)")
-plt.show()
-
-def explain_customer(i):
-    row = shap_values[i]
-
-    df_exp = pd.DataFrame({
-        "feature": X_test.columns,
-        "impact": row.values
-    })
-
-    df_exp["abs_impact"] = df_exp["impact"].abs()
-
-    return df_exp.sort_values(
-        by="abs_impact",
-        ascending=False
-    ).drop(columns="abs_impact")
-    
-explain_customer(0)
-
-targeted_idx = df_targeting[df_targeting["target"] == 1].index
-
-targeted_positions = [
-    X_test.index.get_loc(idx)
-    for idx in targeted_idx
-]
-
-shap_targeted = shap_values[targeted_positions]
-
-shap.plots.beeswarm(shap_targeted)
-
-plt.title("Impacto de variables en clientes target (SHAP)")
-plt.show()
-
-mean_impact = np.abs(shap_values.values).mean(axis=0)
-
-pd.DataFrame({
+importance_df = pd.DataFrame({
     "feature": X_test.columns,
     "importance": mean_impact
 }).sort_values(by="importance", ascending=False)
 
+print("\nSHAP Feature Importance:\n")
+print(importance_df)
+
+# -----------------------------
+# 5. VISUALIZACIONES SHAP
+# -----------------------------
+shap.summary_plot(shap_values, X_test, show=False)
+plt.title("SHAP - Global impact of variables")
+plt.show()
+
+# -----------------------------
+# 6. EXPLICACIÓN INDIVIDUAL
+# -----------------------------
+def explain_customer(i):
+    shap_row = shap_matrix[i]
+
+    df_exp = pd.DataFrame({
+        "feature": X_test.columns,
+        "impact": shap_row
+    })
+
+    df_exp["abs_impact"] = np.abs(df_exp["impact"])
+
+    return df_exp.sort_values("abs_impact", ascending=False).drop(columns="abs_impact")
+
+# -----------------------------
+# 7. EXPLICAR CLIENTES TARGET
+# -----------------------------
 top_clients = df_targeting[df_targeting["target"] == 1].copy()
 
 top_clients["top_driver"] = [
-    explain_customer(X_test.index.get_loc(idx))["feature"].values[0]
+    explain_customer(X_test.index.get_loc(idx))["feature"].iloc[0]
     for idx in top_clients.index
 ]
 
 top_clients.to_csv("target_with_explanations.csv", index=False)
 
-
-#Insights:
-
-#- El modelo no es una "caja negra"
-#- Podemos explicar cada decisión individual
-#- Identificamos drivers de churn:
-    #→ bajo engagement
-    #→ bajo balance
-    #→ pocos productos
-
-#Impacto en negocio:
-#------------------
-#- campañas personalizadas
-#- mejor comunicación con clientes
-#- soporte a decisiones estratégicas
-
-
+# -----------------------------
+# 8. EXPLICACIÓN TEXTO NATURAL
+# -----------------------------
 def explain_customer_text(i):
+
     top_features = explain_customer(i).head(3)
 
-    explanation = "Cliente con riesgo de churn debido a: "
-
-    explanation += ", ".join(top_features["feature"].values)
-
-    return explanation
+    return "Customer at risk of churn due to: " + ", ".join(
+        top_features["feature"].values
+    )
 
 print(explain_customer_text(0))
 
@@ -945,7 +924,7 @@ print("AUC Train:", auc_train)
 print("AUC Test:", auc_test)
 
 if auc_test < 0.75:
-    print("⚠️ ALERTA: posible caída de performance del modelo")
+    print("⚠️ ALERT: Possible drop in model performance")
     
 performance_log = []
 
@@ -958,7 +937,7 @@ perf_df = pd.DataFrame(performance_log)
 
 important_features = psi_df.head(5).index.tolist()
 
-print("Features con mayor drift:", important_features)
+print("Features with highest drift:", important_features)
 
 
 #Insights:
@@ -976,7 +955,7 @@ print("Features con mayor drift:", important_features)
 
 drifted_features = psi_df[psi_df["PSI"] > 0.2]
 
-print("\nFeatures con drift significativo:\n", drifted_features)
+print("\nFeatures with significant drift:\n", drifted_features)
 
 # =========================================
 # BLOQUE 11 — DEPLOYMENT & MLOps
@@ -1076,71 +1055,50 @@ def predict_api(data_json):
 # BLOQUE 12 — AI LAYER (LLM / GENERATIVE AI)
 # =========================================
 
-
-#Objetivo:
-#---------
-#Agregar una capa de Inteligencia Artificial generativa para:
-
-#- explicar decisiones del modelo en lenguaje natural
-#- generar insights automáticos para negocio
-#- asistir en la toma de decisiones comerciales
-
-#Enfoque:
-#--------
-#- usar resultados del modelo (SHAP, proba, CLV)
-#- transformar datos en narrativa accionable
-
-
 def generate_customer_explanation(i):
 
-    proba = y_proba[i]
+    proba = model.predict_proba(X_test.iloc[[i]])[:, 1][0]
+
     top_features = explain_customer(i).head(3)["feature"].values
 
     explanation = f"""
-Cliente con probabilidad de churn de {proba:.2%}.
+Customer with a high probability of churn {proba:.2%}.
 
-Principales factores:
+Main factors:
 - {top_features[0]}
 - {top_features[1]}
 - {top_features[2]}
 
-Recomendación:
-Contactar cliente con estrategia personalizada de retención.
+Recommendation:
+Contact customer with a personalized retention strategy.
 """
 
     return explanation
 
+
 print(generate_customer_explanation(0))
+
 
 def generate_business_action(i):
 
-    proba = y_proba[i]
+    proba = model.predict_proba(X_test.iloc[[i]])[:, 1][0]
     clv = X_test.iloc[i]["CLV"]
 
     if proba > 0.7 and clv > df["CLV"].median():
         return "Alta prioridad: ofrecer beneficios premium"
-    
+
     elif proba > 0.7:
         return "Campaña de retención estándar"
-    
+
     elif proba > 0.4:
         return "Seguimiento comercial"
-    
+
     else:
         return "No contactar"
-    
+
+
 print(generate_business_action(0))
 
-targeted_positions = [
-    X_test.index.get_loc(idx)
-    for idx in df_targeting[df_targeting["target"] == 1].index
-]
-
-df_targeting.loc[df_targeting["target"] == 1, "AI_Action"] = [
-    generate_business_action(i) for i in targeted_positions
-]
-
-df_targeting.head()
 
 def generate_executive_summary():
 
@@ -1148,48 +1106,23 @@ def generate_executive_summary():
     avg_clv = df["CLV"].mean()
 
     summary = f"""
-Resumen Ejecutivo:
+Executive Summary:
 
-- Tasa de churn: {churn_rate:.2%}
-- CLV promedio: ${avg_clv:,.2f}
+- Churn Rate: {churn_rate:.2%}
+- Average CLV: ${avg_clv:,.2f}
+
+Insights:
+- Customers with low engagement present higher risk of churn
+- High-value segments require priority strategies
+
+Recommendation:
+Implement targeted campaigns based on predictive models and profit optimization.
 """
 
-#Insights:
-#- Clientes con bajo engagement presentan mayor riesgo de abandono
-#- Segmentos de alto valor requieren estrategias prioritarias
+    return summary
 
-#Recomendación:
-#Implementar campañas dirigidas basadas en modelos predictivos
-#y optimización de profit.
-
-
-    #return summary
 
 print(generate_executive_summary())
 
 
-#Extensión futura (RAG):
-
-#- integrar base de conocimiento de clientes
-#- buscar clientes similares (embeddings)
-#- generar recomendaciones personalizadas
-
-#Ejemplo:
-#"Clientes similares respondieron mejor a campañas de descuento"
-
-
 df_targeting.to_csv("final_ai_targeting.csv", index=False)
-
-
-#Valor agregado de IA:
-
-#- Traduce modelos complejos a lenguaje de negocio
-#- Permite decisiones más rápidas y automatizadas
-#- Mejora la experiencia del cliente
-
-#Conclusión:
-#-----------
-#La combinación de ML + AI genera un sistema inteligente
-#de toma de decisiones comerciales
-
-
