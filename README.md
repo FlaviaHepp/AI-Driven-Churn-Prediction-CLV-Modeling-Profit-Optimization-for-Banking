@@ -1,4 +1,4 @@
-# 🏦AI-Powered Customer Intelligence & Revenue Optimization Platform for Banking
+# 🏦 AI-Powered Customer Intelligence & Revenue Optimization Platform for Banking
 📖 Overview
 
 This project is an end-to-end Customer Intelligence Platform designed for the banking industry. It combines Machine Learning, Customer Segmentation, Explainable AI, Profit Optimization, and Business Decision Intelligence to help financial institutions proactively reduce customer churn and maximize revenue.
