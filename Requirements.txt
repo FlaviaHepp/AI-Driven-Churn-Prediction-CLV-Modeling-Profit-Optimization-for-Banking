@@ -1,7 +1,14 @@
-pandas
-numpy
-matplotlib
-seaborn
-scikit-learn
-xgboost
-shap
+Python
+Pandas
+NumPy
+Machine Learning
+Scikit-Learn
+XGBoost
+Explainable AI
+SHAP
+Data Visualization
+Matplotlib
+Seaborn
+Model Monitoring
+Population Stability Index (PSI)
+ROC-AUC Analysis
