@@ -39,9 +39,9 @@ Predict the probability that a customer will abandon the bank.
 
 Model Outputs:
 
-Churn probability
-Risk ranking
-Customer prioritization
+- Churn probability
+- Risk ranking
+- Customer prioritization
 
 ### 👥Intelligent Customer Targeting
 
@@ -56,10 +56,10 @@ Only the most economically valuable customers are selected for retention campaig
 
 Benefits:
 
-Budget optimization
-Campaign efficiency
-Higher ROI
-Better customer prioritization
+- Budget optimization
+- Campaign efficiency
+- Higher ROI
+- Better customer prioritization
 
 ### 🧠Explainable AI (SHAP)
 
@@ -67,13 +67,13 @@ The platform includes model explainability capabilities using SHAP.
 
 Provides:
 
-Global Explainability
+- Global Explainability
 
-Understanding which variables drive churn across the customer base.
+- Understanding which variables drive churn across the customer base.
 
-Individual Explainability
+- Individual Explainability
 
-Explaining why a specific customer is considered high-risk.
+- Explaining why a specific customer is considered high-risk.
 
 Example:
 
@@ -83,10 +83,10 @@ Customer has a high churn probability due to low engagement, low account balance
 
 Production-oriented monitoring framework including:
 
-Population Stability Index (PSI)
-Train vs Test performance monitoring
-Drift alerts
-Feature stability analysis
+- Population Stability Index (PSI)
+- Train vs Test performance monitoring
+- Drift alerts
+- Feature stability analysis
 
 This enables proactive model maintenance and retraining decisions.
 
@@ -96,10 +96,10 @@ The final layer translates model outputs into business recommendations.
 
 Examples:
 
-High-priority retention campaign
-Premium customer intervention
-Standard follow-up
-No action required
+- High-priority retention campaign
+- Premium customer intervention
+- Standard follow-up
+- No action required
 
 This bridges the gap between Machine Learning and business execution.
 
@@ -180,21 +180,21 @@ The platform enables financial institutions to:
 
 The platform generates business-ready outputs:
 
-Retention Campaign Targets
+- Retention Campaign Targets
 campaign_targets.csv
-Explainable Customer Recommendations
+- Explainable Customer Recommendations
 target_with_explanations.csv
-Production Predictions
+- Production Predictions
 final_targets_production.csv
-AI-Enhanced Business Actions
+- AI-Enhanced Business Actions
 final_ai_targeting.csv
 
 These outputs can be integrated directly into:
 
-CRM Systems
-Marketing Automation Platforms
-Customer Success Workflows
-Business Intelligence Solutions
+- CRM Systems
+- Marketing Automation Platforms
+- Customer Success Workflows
+- Business Intelligence Solutions
 
 ### 🚀Future Enhancements
 
